@@ -1,15 +1,17 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import google.generativeai as genai
-from config import GEMINI_API_KEY
+import config
 
 # Setup
-genai.configure(api_key=GEMINI_API_KEY)
+genai.configure(api_key=config.GEMINI_API_KEY)
 app = Flask(__name__)
 CORS(app)
 
 # Load model
-model = genai.GenerativeModel('gemini-2.0-flash')
+model = genai.GenerativeModel(
+    model_name = config.AI_MODEL
+)
 
 @app.route("/api/chat", methods=["POST"])
 def chat():
