@@ -1,7 +1,7 @@
 const textarea = document.getElementById('input');
 const sendButton = document.getElementById('send');
 const chat = document.getElementById('chat');
-
+const site = 'https://hinabackend.onrender.com/'
 const lineHeight = parseInt(window.getComputedStyle(textarea).lineHeight, 10);
 const maxLines = 8;
 const maxHeight = lineHeight * maxLines;
@@ -35,7 +35,7 @@ sendButton.addEventListener('click', async () => {
     textarea.style.height = 'auto';
 
     try {
-    const response = await fetch('http://localhost:5000/api/chat', {
+    const response = await fetch(site, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message })
