@@ -18,6 +18,8 @@ def chat():
     data = request.get_json()
     message = data.get("message", "")
 
+    
+
     try:
         response = model.generate_content(message)
         content = response.text.strip()
@@ -37,6 +39,9 @@ def chat():
                 "message": str(e)
             }
         }), 500
+@app.route("/api/chat", methods=["GET"])
+def hello():
+    return "✅ Flask API is running (" + config.AI_MODEL + "). Use POST to send messages.", 200
 
 if __name__ == "__main__":
     app.run(debug=True)
