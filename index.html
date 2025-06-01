@@ -10,7 +10,34 @@
 </head>
 <body>
   <div id="chat" role="log" aria-live="polite" aria-relevant="additions"></div>
+<body>
+  <!--just fucking type portal, and yes i used a forum to make this-->
+  <style>
+    body {
+      cursor: default;
+    }
 
+    body.portal-active {
+      cursor: url('assets/portal.png'), auto; 
+    }
+  </style>
+  <script>
+    let typedKeys = "";
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key.length === 1) {
+        typedKeys += e.key.toLowerCase();
+
+        if (typedKeys.length > 6) {
+          typedKeys = typedKeys.slice(-6);
+        }
+
+        if (typedKeys === "portal") {
+          document.body.classList.add("portal-active");
+        }
+      }
+    });
+  </script>
   <div id="input-area">
     <div id="input-area-inner">
       <textarea
