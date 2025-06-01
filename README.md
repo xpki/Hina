@@ -19,5 +19,5 @@ git clone https://github.com/xpki/hina.git
 cd hina
 
 pip install -r requirements.txt
-python app.py
+python backend/app.py
 ```
