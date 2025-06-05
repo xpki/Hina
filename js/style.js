@@ -64,3 +64,27 @@ function addMessage(text, role) {
     chat.appendChild(bubble);
     chat.scrollTop = chat.scrollHeight;
 }
+
+
+const sidebar = document.getElementById('sidebar');
+const toggleBtn = document.getElementById('toggle-btn');
+
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  if (sidebar) {
+    sidebar.classList.toggle('close');
+    // Save state to localStorage
+    localStorage.setItem('sidebarCollapsed', sidebar.classList.contains('close'));
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const sidebar = document.getElementById('sidebar');
+  if (sidebar && localStorage.getItem('sidebarCollapsed') === 'true') {
+    sidebar.classList.add('close');
+  }
+});
+
+window.addEventListener('load', function() {
+  document.body.classList.remove('preload');
+});

@@ -1,3 +1,10 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
 .about-container {
     max-width: 800px;
     margin: 20px auto;
@@ -99,4 +106,28 @@
     padding: 15px;
     border-radius: 8px;
     border-left: 3px solid var(--hina-pink);
+}
+
+.main-content {
+  padding: 20px;
+  width: calc(100% - 250px);
+  margin-left: 250px;
+  transition: margin-left 0.3s ease;
+}
+
+#sidebar.close ~ .main-content {
+  margin-left: 60px;
+  width: calc(100% - 60px);
+}
+
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.character-image, .developer-avatar {
+  max-width: 100%;
+  height: auto;
 }
