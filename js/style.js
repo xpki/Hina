@@ -1,9 +1,12 @@
 const textarea = document.getElementById('input');
 const sendButton = document.getElementById('send');
+const resetButton = document.getElementById('reset');
 const chat = document.getElementById('chat');
 const lineHeight = parseInt(window.getComputedStyle(textarea).lineHeight, 10);
 const maxLines = 8;
 const maxHeight = lineHeight * maxLines;
+const clientId = localStorage.getItem('hina_client_id') || crypto.randomUUID();
+localStorage.setItem('hina_client_id', clientId);
 
 textarea.addEventListener('input', () => {
     textarea.style.height = 'auto';
@@ -31,28 +34,23 @@ sendButton.addEventListener('click', async () => {
 
     addMessage(message, 'user');
     textarea.value = '';
-    textarea.style.height = 'auto';
-
+    
     try {
-    const response = await fetch('https://hinabackend.onrender.com/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message })
-    });
+        const response = await fetch('https://hinabackend.onrender.com/api/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Client-ID': clientId  // Send client ID
+            },
+            body: JSON.stringify({ message })
+        });
 
-    if (!response.ok) throw new Error('Network response was not ok');
-
-    const data = await response.json();
-    const reply = data?.choices?.[0]?.message?.content;
-
-    if (reply) {
-        addMessage(reply, 'ai');
-    } else {
-        addMessage("Sorry, no response from AI.", 'ai');
-    }
+        const data = await response.json();
+        addMessage(data.choices[0].message.content, 'ai');
+        
     } catch (err) {
-    console.error('Fetch error:', err);
-    addMessage("Error contacting Gemini API.", 'ai');
+        console.error('Error:', err);
+        addMessage("Hina-sama is unavailable...", 'ai');
     }
 });
 
@@ -86,4 +84,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 window.addEventListener('load', function() {
   document.body.classList.remove('preload');
+});
+
+resetButton.addEventListener('click', async () => {
+    try {
+        await fetch('https://hinabackend.onrender.com/api/reset', {
+            method: 'POST',
+            headers: { 'X-Client-ID': clientId }
+        });
+        chat.innerHTML = '';
+    } catch (err) {
+        console.error('Error resetting chat:', err);
+        addMessage("Failed to reset conversation", 'ai');
+    }
 });
