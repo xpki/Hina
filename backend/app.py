@@ -97,7 +97,7 @@ def reset_chat():
 
 @app.route("/api/chat", methods=["GET"])
 def hello():
-    return f"✅ Hina AI ({config.AI_MODEL})
+    return "✅ Flask API is running (" + config.AI_MODEL + "). Use POST to send messages.", 200
 
 if __name__ == "__main__":
     init_chat()
