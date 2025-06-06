@@ -97,7 +97,7 @@ def reset_chat():
 
 @app.route("/api/chat", methods=["GET"])
 def hello():
-    return f"✅ Hina AI ({config.AI_MODEL}) - Active memory: {len(chat_session.history if chat_session else 0)} messages", 200
+    return f"✅ Hina AI ({config.AI_MODEL})
 
 if __name__ == "__main__":
     init_chat()
