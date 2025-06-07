@@ -257,8 +257,10 @@ body {
 
 #sidebar-footer {
   margin-top: auto;
-  padding: 16px 0;
+  padding: 1.2rem 0 0.8rem 0;
+  width: 100%;
   text-align: center;
+  position: relative;
 }
 
 .sidebar-footer-line {
@@ -271,10 +273,12 @@ body {
   font-size: 12px;
   color: var(--hina-dark);
   opacity: 0.7;
+  display: block;
 }
 
 .sidebar-footer-copyright {
   display: none;
+  margin-top: 0.5rem;
 }
 
 #sidebar.close #reset {
@@ -302,6 +306,13 @@ body {
 
 #sidebar.close ~ .main-content {
   margin-left: 30px;
+}
+
+#sidebar.close .sidebar-footer-text {
+    display: none;
+}
+#sidebar.close .sidebar-footer-copyright {
+    display: block;
 }
 
 body.preload #sidebar {
