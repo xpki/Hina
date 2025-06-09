@@ -1,3 +1,5 @@
+
+
 :root {
   --hina-pink: #ff9bb3;
   --hina-pink-dark: #ff85a2;
@@ -9,8 +11,8 @@
 body {
   margin: 0;
   padding-bottom: 80px;
-  font-family: "Segoe UI", sans-serif;
   background: var(--hina-light);
+  font-family: 'Noto Sans';
 }
 
 #chat {
