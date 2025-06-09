@@ -1,6 +1,6 @@
 # 🌸 Hina
 
-> A simple chatbot
+> A simple chatbot<br>
 > Named after Sorasaki Hina from *Blue Archive*
 
 ---
