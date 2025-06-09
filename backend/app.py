@@ -48,7 +48,7 @@ def chat():
     
     if not client_id:
         return jsonify({"error": "Client ID required"}), 400
-
+    # will add a way to get different personalities later
     try:
         chat_session = get_chat_session(client_id)
         
