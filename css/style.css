@@ -237,6 +237,28 @@ body {
   fill: white;
 }
 
+#settingsPopupbutton {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 1001;
+}
+
+#settingsPopupbutton:hover {
+  background-color: var(--hina-pink);
+}
+
+#settingsPopupbutton svg {
+  display: block;
+}
+
+
 #toggle-btn {
   background: none;
   border: none;
@@ -289,6 +311,10 @@ body {
   padding: 0;
   border-radius: 50%;
   margin-bottom: 8px;
+}
+
+#sidebar.close ~ #settingsPopupbutton {
+  right: 16px;
 }
 
 #sidebar.close #reset span {

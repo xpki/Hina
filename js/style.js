@@ -3,6 +3,8 @@ const sendButton = document.getElementById('send');
 const resetButton = document.getElementById('reset');
 const chat = document.getElementById('chat');
 const lineHeight = parseInt(window.getComputedStyle(textarea).lineHeight, 10);
+const sidebar = document.getElementById('sidebar');
+const toggleBtn = document.getElementById('toggle-btn');
 const maxLines = 8;
 const maxHeight = lineHeight * maxLines;
 const clientId = localStorage.getItem('hina_client_id') || crypto.randomUUID();
@@ -62,10 +64,6 @@ function addMessage(text, role) {
     chat.scrollTop = chat.scrollHeight;
 }
 
-
-const sidebar = document.getElementById('sidebar');
-const toggleBtn = document.getElementById('toggle-btn');
-
 function toggleSidebar() {
   const sidebar = document.getElementById('sidebar');
   if (sidebar) {
@@ -98,3 +96,4 @@ resetButton.addEventListener('click', async () => {
         addMessage("Failed to reset conversation", 'ai');
     }
 });
+
