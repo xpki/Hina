@@ -1,3 +1,4 @@
+# most of this fucking code is ai. ill rewrite this shit atleast so it isnt ai. - xpki
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import google.generativeai as genai
