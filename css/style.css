@@ -258,6 +258,44 @@ body {
   display: block;
 }
 
+.settingsPopup-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    transition: all 0.7s ease-in-out; 
+    visibility: hidden;
+    opacity: 0;
+}
+
+.settingsPopup-content {
+  background-color: #ffffff;
+  padding: 5rem 2rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  position: relative;
+  max-width: 24rem; 
+  width: 100%;
+  transition: all 0.7s ease-in-out;
+  transform-origin: center;
+  transform: scale(0.5); 
+  opacity: 0; 
+}
+
+.settingsPopup-overlay.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.settingsPopup-overlay.open .settingsPopup-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+
 
 #toggle-btn {
   background: none;

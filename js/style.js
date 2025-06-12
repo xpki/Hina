@@ -8,6 +8,7 @@ const toggleBtn = document.getElementById('toggle-btn');
 const maxLines = 8;
 const maxHeight = lineHeight * maxLines;
 const clientId = localStorage.getItem('hina_client_id') || crypto.randomUUID();
+const popupOverlay = document.getElementById('settingsPopupOverlay');
 localStorage.setItem('hina_client_id', clientId);
 
 textarea.addEventListener('input', () => {
@@ -71,6 +72,14 @@ function toggleSidebar() {
     // Save state to localStorage
     localStorage.setItem('sidebarCollapsed', sidebar.classList.contains('close'));
   }
+}
+
+function openSettings() {
+    popupOverlay.classList.add('open');
+}
+
+function closeSettings() {
+    popupOverlay.classList.remove('open');
 }
 
 document.addEventListener('DOMContentLoaded', function() {
