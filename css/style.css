@@ -259,15 +259,15 @@ body {
 }
 
 .settingsPopup-overlay {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 50;
-    transition: all 0.7s ease-in-out; 
-    visibility: hidden;
-    opacity: 0;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  transition: all 0.4s ease-in-out; 
+  visibility: hidden;
+  opacity: 0;
 }
 
 .settingsPopup-content {
@@ -279,7 +279,7 @@ body {
   position: relative;
   max-width: 24rem; 
   width: 100%;
-  transition: all 0.7s ease-in-out;
+  transition: all 0.4s ease-in-out;
   transform-origin: center;
   transform: scale(0.5); 
   opacity: 0; 
@@ -291,10 +291,26 @@ body {
 }
 
 .settingsPopup-overlay.open .settingsPopup-content {
-    transform: scale(1);
-    opacity: 1;
+  transform: scale(1);
+  opacity: 1;
 }
 
+#settingsPopup-close {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 4px 1px 4px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 1001;
+}
+
+#settingsPopup-close:hover {
+  cursor: pointer;
+}
 
 
 #toggle-btn {
